@@ -11,6 +11,7 @@ module CheckAnswersHelper
     offer_care_qualifications
     care_cost
     offer_staff_type
+    offer_staff_charge
   ].freeze
 
   def items
@@ -24,6 +25,7 @@ module CheckAnswersHelper
       next transport_type if question.eql?("transport_type")
       next offer_care_qualifications if question.eql?("offer_care_qualifications")
       next offer_staff_type if question.eql?("offer_staff_type")
+      next how_much_charge(question, "offer_staff_type") if question.eql?("offer_staff_charge")
       next how_much_charge(question, "transport_type") if question.eql?("transport_cost")
       next how_much_charge(question, "offer_care_qualifications") if question.eql?("care_cost")
       next how_much_charge(question, "rooms_number") if question.eql?("accommodation_cost")
@@ -149,12 +151,6 @@ module CheckAnswersHelper
     }, {
       field: t("coronavirus_form.questions.offer_staff_type.offer_staff_description.label"),
       value: sanitize(session[:offer_staff_description]),
-      edit: {
-        href: "offer-staff-type?change-answer",
-      },
-    }, {
-      field: t("coronavirus_form.questions.offer_staff_type.offer_staff_charge.title"),
-      value: sanitize(session[:offer_staff_charge]),
       edit: {
         href: "offer-staff-type?change-answer",
       },

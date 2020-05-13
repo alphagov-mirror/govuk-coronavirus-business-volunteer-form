@@ -461,6 +461,8 @@ en:
             standard_price:
               label: "A standard price"
           custom_select_error: "Select how much you would charge"
+      offer_staff_charge:
+        title: "How much would you charge for staff?"
       expert_advice_type:
         title: "What kind of expertise can you offer?"
         hint: "Select the types of support you can offer."

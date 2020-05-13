@@ -20,6 +20,7 @@ RSpec.describe CheckAnswersHelper, type: :helper do
       offer_staff_type: [
         I18n.t("coronavirus_form.questions.offer_staff_type.offer_staff_type.options.developers.label"),
       ],
+      offer_staff_charge: I18n.t("coronavirus_form.questions.how_much_charge.options").map { |_, item| item[:label] }.sample,
     }
   end
 
